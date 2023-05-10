@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("partials/head") %>
+    <%- include("partials/navigation") %>
+
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+    <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+
+    <style type="text/css">
+      body, html {
+        height: 100%;
+        margin: 0%;
+        padding: 0%;
+      }
+  
+        #container {
+         height: calc(70% - 50px); /* Altura total menos la altura del margen superior */
+         margin: auto;
+         margin-top: 100px;
+         overflow-y: auto;
+         margin-bottom: 0;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Grafica</title>
+    
+  </head>
+
+  <body>
+
+    <div id="container"></div>
+
+    <main>
+      <section class="content">
+        <script>
+          anychart.onDocumentReady(function () {
+            var chart = anychart.pie([
+              ['Ingenierias', 845],
+              ['Medicina', 550],
+              ['Biologia', 464],
+              ['Derecho', 697],
+              ['Otros', 1235]
+            ]);
+
+            chart
+              .title('Porcentaje de estudiantes por programa de pregado en la Universidad de Sucre')
+              .radius('45%')
+              .innerRadius('30%');
+
+            chart.container('container');
+            chart.background().fill("transparent");
+            chart.draw();
+          });
+        </script>
+      </section>
+    </main>
+    <div class="container-fluid" id="about">
+      <div class="row bg-dark text-white p-5 text-center">
+        <div class="col-md-4 offset-md-4">
+          <h3>Lorem, ipsum dolor.</h3>
+          <p>
+            Elit exercitationem id illo sit distinctio. Deserunt ut debitis
+            voluptates mollitia dignissimos eligendi vel quidem itaque dolores
+            ratione ut. Soluta accusantium dolor nemo suscipit rerum. Aliquid
+            quasi excepturi provident eos.
+          </p>
+        </div>
+      </div>
+    </div>
+    <%- include("partials/footer") %>
+  </body>
+</html>
